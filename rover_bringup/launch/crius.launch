@@ -1,0 +1,52 @@
+<launch>
+
+	<!-- launch MPU6050 ROS Node -->
+	<node pkg="rover_bringup" type="crius_node" name="crius_node" output="screen">
+		<!-- mpu6050 topics (should not be changed unless changed in the arduino firmware as well) -->		
+		<param name="float_data_topic" value="/mpu6050/floatdata" />
+		<param name="int_data_topic" value="/mpu6050/intdata" />
+		
+		<!-- supply your MPU6050 gyro offsets here -->
+		<!-- if you dont know them, send the following command to the mpu6050: -->
+		<!-- rostopic pub /mpu6050/command std_msgs/String "calibrate" -->
+		<!-- make sure to only transmit the message once and wait for the result of the calibration process -->
+		<param name="XAccelOffset" value="-3539" />
+		<param name="YAccelOffset" value="1821"  />
+		<param name="ZAccelOffset" value="1577"  />
+		<param name="XGyroOffset"  value="-11"   />
+		<param name="YGyroOffset"  value="33"   />
+		<param name="ZGyroOffset"  value="-41"   />
+		
+		<!-- servo parameters -->
+		<param name="throttle_pwm_neutral" value="88" />
+		<param name="throttle_pwm_range" value="30" />
+		<param name="steering_pwm_neutral" value="85" />
+		<param name="steering_pwm_range" value="40" />
+		<param name="invert_steering" value="0" />
+		<param name="invert_throttle" value="0" />
+
+		<!-- Frames -->
+		<param name="imu_frame_id" value="imu_link" />	
+		<param name="imu_base_frame_id" value="imu_base_link"/>			
+		<param name="base_frame_id" value="base_link" />				
+		
+		<!-- Topics -->
+		<param name="imu_msg_topic" value="/imu/data" />
+		<param name="imu_raw_msg_topic" value="/imu/data_raw" />
+		<param name="imu_mag_msg_topic" value="/imu/magnetometer" />
+		<param name="imu_mag_raw_msg_topic" value="/imu/magnetometer_raw" />
+
+		<!-- publish IMU TF (mostly for testing/debugging purpose) -->
+		<param name="publish_tf"  value="false" />
+	</node>
+
+	<!--  **********  TFs **********  -->
+	<arg name="pi" value="3.14159265358979" />
+	<arg name="pi/2" value="1.5707963267948966" />
+	<arg name="pi/4" value="0.785398163397448" />
+ 	<arg name="optical_rotate" value="0 0 0 -$(arg pi/2) 0 -$(arg pi/2)" />
+	<arg name="imu_rotate" value="0 0 0 -$(arg pi/2) 0 0" />
+
+
+
+</launch>

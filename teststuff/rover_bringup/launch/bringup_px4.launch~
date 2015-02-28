@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
+
+<launch>
+	<!-- launch rosserial -->
+	<node pkg="rosserial_python" type="serial_node.py" name="serial_connection" output="screen">
+		<!--param name="baud" value="115200" /-->
+		<param name="port" value="/dev/ttyUSB0" />
+
+	</node>
+
+	<!--connect -->
+	<include file="$(find rover_bringup)/launch/px4.launch"/>
+
+	<!-- test stuff -->
+	<node pkg="teststuff" type="TwistStampedPublisher" name="TwistStampedPublsiher"/>
+
+
+	<!-- tfs -->
+	<!--include file="$(find rover_bringup)/launch/tf.launch"/-->
+	
+	<!-- openni camera -->
+	<--include file="$(find openni2_launch)/launch/openni2.launch"/-->
+
+</launch>
