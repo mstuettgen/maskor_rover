@@ -4,4 +4,5 @@ plugin_blacklist:
 - 'setpoint_velocity'
 - 'setpoint_position'
 - 'setpoint_accel'
-#- 'setpoint_attitude'
+- 'setpoint_attitude'
+#- 'actuator_control'

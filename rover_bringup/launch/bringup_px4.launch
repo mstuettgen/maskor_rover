@@ -6,7 +6,7 @@
 	<include file="$(find rover_bringup)/launch/px4.launch"/>
 
 	<!-- test stuff -->
-	<node pkg="teststuff" type="setpoint_attitude_publisher" name="setpoint_attitude_publisher" launch-prefix="gnome-terminal -e"/>
+	<node pkg="teststuff" type="actuator_controls_publisher" name="actuator_controls_publisher" launch-prefix="gnome-terminal -e"/>
 
 
 	<!-- tfs -->

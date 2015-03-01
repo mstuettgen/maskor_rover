@@ -58,21 +58,21 @@ mission:
 
 
 # *_setpoint
-setpoint:
+#setpoint:
 
 #  # setpoint_accel
 #  accel:
 #    send_force: false
 #
 
-  # setpoint_attitude
-  attitude:
-    listen_tf: true
-    listen_twist: false
-    pose_with_covariance: false
-    frame_id: "local_origin"
-    child_frame_id: "attitude"
-    tf_rate_limit: 10.0
+# # setpoint_attitude
+# attitude:
+#   listen_tf: true
+#   listen_twist: false
+#   pose_with_covariance: false
+#   frame_id: "local_origin"
+#   child_frame_id: "attitude"
+#   tf_rate_limit: 10.0
 
  # # setpoint_position
 #  position:
@@ -83,4 +83,8 @@ setpoint:
 
 
 #  # setpoint_velocity
+#  # None
+
+
+#  # actuator_control
 #  # None

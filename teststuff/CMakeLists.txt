@@ -6,8 +6,6 @@ project(teststuff)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  tf
-  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -103,14 +101,14 @@ include_directories(
 #)
 
 ## Declare a cpp executable
-add_executable(setpoint_attitude_publisher src/setpoint_attitude_publisher.cpp)
+add_executable(actuator_controls_publisher src/actuator_controls_publisher.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(teststuff_node teststuff_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(setpoint_attitude_publisher
+target_link_libraries(actuator_controls_publisher
    ${catkin_LIBRARIES}
 )
 
